@@ -43,6 +43,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'faker', '~> 1.7', '>= 1.7.3'
 end
 
 group :development do
