@@ -1,0 +1,11 @@
+<div class="row">
+<h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.category %></p>
+<%= link_to "Edit", edit_restaurant_path(@restaurant), :class => "btn btn-warning" %>
+<%= link_to "Delete", restaurant_path(@restaurant),
+method: :delete,
+data: { confirm: "Are you sure?" }, :class => "btn btn-danger" %>
+<%= link_to "Go back", restaurants_path, :class => "btn btn-primary" %>
+</div>
