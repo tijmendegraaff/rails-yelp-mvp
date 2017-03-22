@@ -14,8 +14,11 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.save
-    redirect_to restaurants_path
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,8 +26,16 @@ class RestaurantsController < ApplicationController
 
   def update
     # @task.done = boolean_value_for_checkbox_inputs(task_params[:done])
-    @restaurant.update(restaurant_params)
-    redirect_to restaurant_path
+    if @restaurant.update(restaurant_params)
+      redirect_to restaurant_path
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   private
